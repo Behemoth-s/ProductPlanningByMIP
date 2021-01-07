@@ -1,0 +1,8 @@
+*.pdf
+assets
+*.~gm
+*.log
+*.lst
+*.lxi
+*.dat
+.vscode

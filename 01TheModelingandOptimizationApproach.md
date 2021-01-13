@@ -4,7 +4,7 @@
 
 Pochet, Yves, 和Laurence A. Wolsey. *Production Planning by Mixed Integer Programming*. Springer Series in Operations Research and Financial Engineering. New York ; Berlin: Springer, 2006.
 
-# 1 The Modeling and Optimization Approach  
+# 1 模型和优化方法
 
 本章节通过两个简单案例介绍建模和优化的概念
 

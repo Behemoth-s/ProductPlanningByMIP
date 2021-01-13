@@ -258,7 +258,7 @@ $$
 
 分支列表$L$通常会使用枚举树来表示其结构，下图为案例的分支遍历，以及对应点在问题空间的未知。
 
-![image-20210106142628381](assets/branch_and_bound_flowchart.svg)
+![image-20210106142628381](https://gitee.com/behe-moth/picgo_img/raw/master/pic/branch_and_bound_flowchart2.svg)
 
 下面为一个案例问题的分支定界方法的结果。
 
@@ -448,9 +448,9 @@ C=\{(x,y)\in\mathbb{R}_+^n\times\mathbb{R}_+^p:&y_1+y_2\leq6\\
 $$
 重构后的$\tilde{P}_X$为图3.7中的阴影部分，使用分支定界法对$\tilde{P}_X$进行求解，可以看到相比于未重构的9个节点，重构后仅需5个节点。
 
-![image-20210107172753736](assets/image-20210107172753736.png)
+![image-20210107172753736](https://gitee.com/behe-moth/picgo_img/raw/master/pic/20210113141804.png)
 
-![image-20210107172739361](assets/image-20210107172739361.png)
+![image-20210107172739361](https://gitee.com/behe-moth/picgo_img/raw/master/pic/20210113141804-1.png)
 
 ### 3.4.4 扩展重构
 
@@ -610,11 +610,11 @@ y_1-y_2\geq 0
 $$
 采用切割平面发进行分支定界算法求解，会得到与先验重构图3.6相同的结果。不同之处在于，先验重构的$Z(V)$会重构所有的有效不等式，而切割平面法则只会重构必要的有效不等式。
 
-![image-20210111163641257](assets/image-20210111163641257.png)
+![image-20210111163641257](https://gitee.com/behe-moth/picgo_img/raw/master/pic/20210113141804-2.png)
 
 例如图3.8所示，在求解第一个线性最优点$a'$，切割平面法只用到了$y_1+y_2\leq6$这一条有效不等式。
 
-![image-20210111163851179](assets/image-20210111163851179.png)
+![image-20210111163851179](https://gitee.com/behe-moth/picgo_img/raw/master/pic/20210113141804-3.png)
 
 根据图3.8，切割平面法的过程如下：
 

@@ -6,3 +6,4 @@ assets
 *.lxi
 *.dat
 .vscode
+*.idea

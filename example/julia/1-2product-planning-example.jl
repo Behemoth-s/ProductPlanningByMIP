@@ -2,10 +2,19 @@ using JuMP
 using MathOptInterface
 const MOI = MathOptInterface
 
-using Gurobi
-model = Model(Gurobi.Optimizer)
+# using Gurobi
+# model = Model(Gurobi.Optimizer)
 # set_optimizer_attribute(model, "Cuts",0)
-set_optimizer_attribute(model, "TimeLimit", 60)
+# set_optimizer_attribute(model, "TimeLimit", 60)
+
+# using MosekTools
+# model = Model(Mosek.Optimizer)
+# set_optimizer_attribute(model,"MSK_DPAR_MIO_MAX_TIME", 60)
+
+using SCIP
+model = Model(SCIP.Optimizer)
+set_optimizer_attribute(model,"limits/time", 60)
+
 
 # using Cbc
 # model = Model(Cbc.Optimizer)

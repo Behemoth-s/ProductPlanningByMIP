@@ -11,16 +11,16 @@ const MOI = MathOptInterface
 # model = Model(Mosek.Optimizer)
 # set_optimizer_attribute(model,"MSK_DPAR_MIO_MAX_TIME", 60)
 
-using SCIP
-model = Model(SCIP.Optimizer)
-set_optimizer_attribute(model,"limits/time", 60)
+# using SCIP
+# model = Model(SCIP.Optimizer)
+# set_optimizer_attribute(model,"limits/time", 60)
 
 
-# using Cbc
-# model = Model(Cbc.Optimizer)
-# set_optimizer_attribute(model, "cuts","off")
-# set_optimizer_attribute(model, "seconds", 60)
-# set_optimizer_attribute(model, "thread", 16)
+using Cbc
+model = Model(Cbc.Optimizer)
+set_optimizer_attribute(model, "cuts","off")
+set_optimizer_attribute(model, "seconds", 60)
+set_optimizer_attribute(model, "thread", 16)
 
 n_i = 12                # 产品种类个数
 n_t = 15                # 时间周期数

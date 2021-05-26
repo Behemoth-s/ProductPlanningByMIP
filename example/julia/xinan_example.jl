@@ -1,5 +1,6 @@
 using JuMP
 using Cbc
+using SCIP
 d = zeros(6, 4);
 sumd = zeros(6, 4);
 
@@ -24,18 +25,19 @@ s_init = 0
 @objective(mps, Min, sum(s[t, i] for i in items, t in date))
 optimize!(mps)
 x_val = value.(x)
-# x_val[2,1] = 460
-# x_val[3,1] = 840
+x_val[2,1] = 460
+x_val[3,1] = 840
 order = [1,2,3,4,5,6]
 orderquantity = [500, 800, 1500, 700, 900, 500];
-ordertime = [2, 3, 5, 4, 5, 6]
+ordertime = [3, 3, 5, 4, 5, 6]
 
 sub1 = Model(Cbc.Optimizer)
-@variable(sub1, wx[t in date, p in order] >= 0)
-@variable(sub1, wy[t in date, p in order], Bin)
-@constraint(sub1,  dem_order[p in order], sum(wx[t, p] for t in 1:ordertime[p])  == orderquantity[p] )
-@constraint(sub1, xlimit[t in date, p in order], wx[t, p] <= x_val[t,1] * wy[t, p]);
-@constraint(sub1, xeq[t in date], sum(wx[t, p] for p in order) == x_val[ t,1]);
-@objective(sub1, Min, sum(wy[t, p] * ordertime[p] for t in date, p in order));
+order1 = [1,2,3,6]
+@variable(sub1, wx[t in date, p in order1] >= 0)
+@variable(sub1, wy[t in date, p in order1], Bin)
+@constraint(sub1,  dem_order[p in order1], sum(wx[t, p] for t in 1:ordertime[p])  == orderquantity[p] )
+@constraint(sub1, xlimit[t in date, p in order1], wx[t, p] <= x_val[t,1] * wy[t, p]);
+@constraint(sub1, xeq[t in date], sum(wx[t, p] for p in order1) == x_val[ t,1]);
+@objective(sub1, Min, sum(wy[t, p] * ordertime[p] for t in date, p in order1));
 optimize!(sub1);
 @show value.(wx);

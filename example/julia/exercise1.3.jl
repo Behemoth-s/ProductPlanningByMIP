@@ -2,10 +2,11 @@ using JuMP
 using MathOptInterface
 const MOI = MathOptInterface
 
-using Gurobi
-model = Model(Gurobi.Optimizer)
+using SCIP
+const SOLVER = SCIP
+model = Model(SOLVER.Optimizer)
 # set_optimizer_attribute(model, "Cuts",0)
-set_optimizer_attribute(model, "TimeLimit", 600)
+# set_optimizer_attribute(model, "TimeLimit", 600)
 
 # using Cbc
 # model = Model(Cbc.Optimizer)
